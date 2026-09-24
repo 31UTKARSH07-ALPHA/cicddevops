@@ -15,4 +15,18 @@ jobs:
       - name: Show operating system
         run: uname -a
       - name: My Name
-        run: echo "My name is Utkarsh"        
+        run: echo "My name is Utkarsh"
+
+  secrets-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secret
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+        run: |
+          if [ -n "$DEMO_SECRET" ]; then
+            echo "Secret is available."
+          else
+            echo "Secret is not configured."
+            exit 1
+          fi
