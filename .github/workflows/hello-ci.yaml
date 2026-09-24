@@ -1,6 +1,8 @@
 name: Hello GitHub Actions
 on:
-  workflow_dispatch:
+  push:
+    branches:
+        -main
 jobs:
   hello:
     runs-on: ubuntu-latest
@@ -12,4 +14,4 @@ jobs:
       - name: Show operating system
         run: uname -a
       - name: My Name
-        run: echo "My name is Utkarsh"  
+        run: echo "My name is Utkarsh"        
